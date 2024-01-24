@@ -64,6 +64,12 @@ main textarea::placeholder, main textarea, .buttons button{
     text-align: center;
     margin-top: 1rem;
 }
+.oculto{
+    display: none !important;
+}
+.respuesta{
+    font-size: 1.5rem;
+}
 
 @media screen and (max-width:1200px){
     body{
