@@ -64,3 +64,105 @@ main textarea::placeholder, main textarea, .buttons button{
     text-align: center;
     margin-top: 1rem;
 }
+
+@media screen and (max-width:1200px){
+    body{
+        display: block;
+    }
+    aside svg{
+        width: min-content;
+    }
+    main{
+        padding:0;
+        margin-top: 100px;
+        margin: 100px 0 0 0;
+    }
+    main textarea{
+        height: 500px;
+    }
+    .buttons{
+        display: flex;
+        justify-content: center;
+    }
+    .resultado{
+        margin:40px 0 ;
+        padding: 30px;
+    }
+    .resultado img{
+        display: none;
+    }
+    
+    main, main textarea, .botonesYTexto, .resultado{
+        width: 900px;
+    }
+
+    
+}
+
+@media screen and (max-width:900px)  {
+    body{
+        display: block;
+    }
+    aside svg{
+        width: min-content;
+    }
+    main{
+        padding:0;
+        margin-top: 100px;
+        margin: 100px 0 0 0;
+        width: 670px;
+    }
+    main textarea{
+
+        height: 500px;
+        width: 670px;
+    }
+    .botonesYTexto{
+        width: 670px;
+    }
+    .buttons{
+        display: flex;
+        justify-content: center;
+    }
+    .resultado{
+        margin:40px 0 ;
+        width: 670px;
+        padding: 30px;
+    }
+    .resultado img{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width:450px ) {
+    body{
+        padding: 25px;
+    }
+    main{
+        width: 350px;
+    }
+    main textarea{
+        width: 350px;
+        height: 350px;
+    }
+    .buttons{
+        width: 350px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .botonesYTexto{
+        width: 350px;
+    }
+    .buttons button{
+        width: 100%;
+    }
+    .buttons button:first-child{
+        margin: 0 0 20px 0 ;
+    }
+    .resultado{
+        width: 350px;
+    }
+}
+
+
