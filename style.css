@@ -79,7 +79,6 @@ button{
     text-align: center;
     font-size: 18px;
     margin-top: 30px;
-    height: 80%;
 }
 .resultado div{
     display: flex;
@@ -102,6 +101,7 @@ button{
 
 .respuesta{
     font-size: 1.5rem;
+    text-align: left;
     margin:40px 20px !important;
     text-align: left !important;
     color: rgb(67, 67, 67);
@@ -174,10 +174,9 @@ button{
     }
     .respuesta{
         font-size: 1.2rem;
-
+        margin: 0 !important;
     }
 
-    
 }
 
 @media screen and (max-width:900px)  {

@@ -28,12 +28,9 @@ function encriptarTexto(){
                 textoProcesado+=texto[i];
             }
          }
-        console.log(textoProcesado);
         mostrarRespuesta(textoProcesado);
     }
     
-    limpiarTextArea();
-   
 }
 function desencriptarTexto(){
     const texto = textarea.value;
@@ -70,11 +67,9 @@ function desencriptarTexto(){
 
             }
         }
-        
-        console.log(textoProcesado);
+
         mostrarRespuesta(textoProcesado);
     }
-    limpiarTextArea();
    
 }
 
@@ -90,15 +85,13 @@ const copiarTexto= async () =>{
     }
 }
 
-function limpiarTextArea(){
-    textarea.value="";
-}
+
 
 function mostrarRespuesta(respuesta){
     imgResultado.classList.add("oculto");
     h3Resultado.classList.add("oculto");
     copiarResultado.classList.remove("oculto");
-    pResultado.classList.add("respuestaLarga");
+    pResultado.classList.add("respuesta");
     pResultado.innerHTML=respuesta;
 }
 
