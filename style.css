@@ -43,11 +43,21 @@ main textarea::placeholder, main textarea, .buttons button{
     padding: 1rem;
     width: 300px;
     border-radius: 20px;
+    transition: all .5s;
+}
+button{
+    cursor: pointer;
 }
 .buttons button:first-child{
     background-color: #0A3871;
     margin-right: 1.5rem;
     color: white;
+}
+.buttons button:first-child:hover{
+    background-color: #052051;
+}
+.buttons button:nth-child(2):hover, .resultado button:hover{
+    background-color: #d8ddf0;
 }
 .resultado{
     background: white;
@@ -66,7 +76,8 @@ main textarea::placeholder, main textarea, .buttons button{
 .resultado p{
     text-align: center;
     margin-top: 1rem;
-    margin-bottom: 200px;
+    margin-bottom: 150px;
+    
 }
 .resultado div{
     display: flex;
@@ -79,17 +90,44 @@ main textarea::placeholder, main textarea, .buttons button{
     border-radius: 20px;
     background-color: transparent;
     width: 90%;
+    transition: all .5s;
+    color:#0A3871;
 }
 
 .oculto{
     display: none !important;
 }
+
 .respuesta{
     font-size: 1.5rem;
     margin:40px 20px !important;
     text-align: left !important;
     color: rgb(67, 67, 67);
     height: 75%;
+}
+
+.notificacionCopiado{
+    position: absolute;
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgb(222, 224, 227);
+    color: #0A3871;
+    top:5%;
+    left: 50%;
+    transform: translate(-50%);
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+
+@keyframes slidein{
+    from{
+        top:0%;
+    }
+    to{
+        top:5%;
+    }
 }
 
 @media screen and (max-width:1200px){

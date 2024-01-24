@@ -16,7 +16,7 @@
     <main>
         <textarea placeholder="Ingrese el texto aqui" id="textarea"></textarea>
         <div class="botonesYTexto">
-            <p><i class="bi bi-exclamation-circle-fill"></i>&nbsp Solo letras minúsculas y sin acentos</p>
+            <p><i class="bi bi-exclamation-circle-fill"></i>&nbsp; Solo letras minúsculas y sin acentos</p>
             <div class="buttons">
                 <button id="encriptar" onclick="encriptarTexto();">Encriptar</button>
                 <button id="desencriptar" onclick="desencriptarTexto();">Desencriptar</button>
@@ -28,10 +28,13 @@
         <h3 id="h3Resultado">Ningún mensaje fue encontrado</h3>
         <p id="pResultado">Ingresa el texto que desees encriptar o desencriptar.</p>
         <div>
-            <button class="oculto" id="copiarResultado" onclick="copiarTexto();">Copiar</button>
+            <button class="oculto" id="copiarResultado" onclick="copiarTexto();"><i class="bi bi-clipboard"></i>&nbsp; Copiar</button>
         </div>
        
     </section>
+    <div class="notificacionCopiado oculto" id="notificacionCopiado">
+        <p><i class="bi bi-clipboard-check"></i> &nbsp; copiado al portapapeles</p>
+    </div>
     
     <script src="script.js"></script>   
     

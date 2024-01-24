@@ -3,6 +3,7 @@ const imgResultado = document.getElementById("imgResultado");
 const h3Resultado = document.getElementById("h3Resultado");
 const pResultado = document.getElementById("pResultado");
 const copiarResultado = document.getElementById("copiarResultado");
+const notificacionCopiado = document.getElementById("notificacionCopiado");
 
 let textoProcesado="";
 
@@ -80,7 +81,10 @@ function desencriptarTexto(){
 const copiarTexto= async () =>{
     try{
         await navigator.clipboard.writeText(textoProcesado);
-        console.log("copiado");
+        notificacionCopiado.classList.remove("oculto");
+        setTimeout(()=>{
+            notificacionCopiado.classList.add("oculto");
+        },2000);
     }catch(err){
         console.log("error al copiar");
     }
