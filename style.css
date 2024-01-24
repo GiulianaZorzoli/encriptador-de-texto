@@ -156,6 +156,9 @@ button{
     .resultado img{
         display: none;
     }
+    .resultado p{
+        margin-bottom: 0;
+    }
     
     main, main textarea, .botonesYTexto, .resultado{
         width: 900px;
