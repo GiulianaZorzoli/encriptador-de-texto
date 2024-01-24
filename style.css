@@ -77,9 +77,9 @@ button{
 }
 .resultado p{
     text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 150px;
-    
+    font-size: 18px;
+    margin-top: 30px;
+    height: 80%;
 }
 .resultado div{
     display: flex;
@@ -159,7 +159,7 @@ button{
         display: none;
     }
     .resultado p{
-        margin-bottom: 0;
+        height: fit-content;
     }
     
     main, main textarea, .botonesYTexto, .resultado{
