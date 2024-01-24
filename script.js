@@ -2,30 +2,33 @@ const textarea = document.getElementById("textarea");
 const imgResultado = document.getElementById("imgResultado");
 const h3Resultado = document.getElementById("h3Resultado");
 const pResultado = document.getElementById("pResultado");
+const copiarResultado = document.getElementById("copiarResultado");
+
+let textoProcesado="";
 
 function encriptarTexto(){
     const texto = textarea.value;
     if(texto==""){
         mostrarDefault();
     }else{
-        let textoEncriptado="";
+        textoProcesado="";
          for(let i=0; i<texto.length;i++){
             if(texto[i]=='a'){
-                textoEncriptado+="ai";
+                textoProcesado+="ai";
             }else if(texto[i]=='e'){
-                textoEncriptado+="enter";
+                textoProcesado+="enter";
             }else if(texto[i]=='i'){
-                textoEncriptado+="imes";
+                textoProcesado+="imes";
             }else if(texto[i]=='o'){
-                textoEncriptado+="ober";
+                textoProcesado+="ober";
             }else if(texto[i]=='u'){
-                textoEncriptado+="ufat";
+                textoProcesado+="ufat";
             }else{
-                textoEncriptado+=texto[i];
+                textoProcesado+=texto[i];
             }
          }
-        console.log(textoEncriptado);
-        mostrarRespuesta(textoEncriptado);
+        console.log(textoProcesado);
+        mostrarRespuesta(textoProcesado);
     }
     
     limpiarTextArea();
@@ -36,42 +39,51 @@ function desencriptarTexto(){
     if(texto==""){
         mostrarDefault();
     }else{
-        let textoDesencriptado="";
+        textoProcesado="";
         let i=0;
         while(i<texto.length){
             switch(texto[i]){
                 case 'a':
-                    textoDesencriptado+="a";
+                    textoProcesado+="a";
                     i=i+2;
                     break;
                 case 'e':
-                    textoDesencriptado+="e";
+                    textoProcesado+="e";
                     i=i+5;
                     break;
                 case 'i':
-                    textoDesencriptado+="i";
+                    textoProcesado+="i";
                     i=i+4;
                     break;
                 case 'o':
-                    textoDesencriptado+="o";
+                    textoProcesado+="o";
                     i=i+4;
                     break;
                 case 'u':
-                    textoDesencriptado+="u";
+                    textoProcesado+="u";
                     i=i+4;
                     break;
                 default:
-                    textoDesencriptado+=texto[i];
+                    textoProcesado+=texto[i];
                     i++;
 
             }
         }
         
-        console.log(textoDesencriptado);
-        mostrarRespuesta(textoDesencriptado);
+        console.log(textoProcesado);
+        mostrarRespuesta(textoProcesado);
     }
     limpiarTextArea();
    
+}
+
+const copiarTexto= async () =>{
+    try{
+        await navigator.clipboard.writeText(textoProcesado);
+        console.log("copiado");
+    }catch(err){
+        console.log("error al copiar");
+    }
 }
 
 function limpiarTextArea(){
@@ -81,6 +93,7 @@ function limpiarTextArea(){
 function mostrarRespuesta(respuesta){
     imgResultado.classList.add("oculto");
     h3Resultado.classList.add("oculto");
+    copiarResultado.classList.remove("oculto");
     pResultado.classList.add("respuesta");
     pResultado.innerHTML=respuesta;
 }
@@ -88,6 +101,7 @@ function mostrarRespuesta(respuesta){
 function mostrarDefault(){
     imgResultado.classList.remove("oculto");
     h3Resultado.classList.remove("oculto");
+    copiarResultado.classList.add("oculto");
     pResultado.classList.remove("respuesta");
     pResultado.innerHTML="Ingresa el texto que desees encriptar o desencriptar.";
 }

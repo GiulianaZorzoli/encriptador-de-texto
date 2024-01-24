@@ -31,6 +31,9 @@ main textarea:focus{
 main textarea::placeholder, main textarea, .buttons button{
     color:#0A3871;
 }
+.botonesYTexto{
+    color: gray;
+}
 .buttons{
     margin-top: 1rem;
 }
@@ -49,12 +52,12 @@ main textarea::placeholder, main textarea, .buttons button{
 .resultado{
     background: white;
     border-radius: 25px;
-    padding: 150px 50px;
     box-shadow: 0px 10px 10px rgb(222, 224, 227);
     width: 350px;
 }
 .resultado img{
     width: 250px;
+    margin: 150px 50px 0 50px; 
 }
 .resultado h3{
     font-size: 1.5rem;
@@ -63,12 +66,30 @@ main textarea::placeholder, main textarea, .buttons button{
 .resultado p{
     text-align: center;
     margin-top: 1rem;
+    margin-bottom: 200px;
 }
+.resultado div{
+    display: flex;
+    justify-content: center;
+}
+.resultado button{
+    font-size: 1.5rem;
+    border:solid 2px #0A3871;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: transparent;
+    width: 90%;
+}
+
 .oculto{
     display: none !important;
 }
 .respuesta{
     font-size: 1.5rem;
+    margin:40px 20px !important;
+    text-align: left !important;
+    color: rgb(67, 67, 67);
+    height: 75%;
 }
 
 @media screen and (max-width:1200px){
@@ -100,6 +121,9 @@ main textarea::placeholder, main textarea, .buttons button{
     
     main, main textarea, .botonesYTexto, .resultado{
         width: 900px;
+    }
+    .resultado button{
+        width: 100%;
     }
 
     
