@@ -63,7 +63,9 @@ button{
     background: white;
     border-radius: 25px;
     box-shadow: 0px 10px 10px rgb(222, 224, 227);
-    width: 350px;
+    min-width: 350px;
+    width: fit-content !important;
+    padding: 0 1rem;
 }
 .resultado img{
     width: 250px;
@@ -165,6 +167,14 @@ button{
     }
     .resultado button{
         width: 100%;
+        margin-top: 20px;
+    }
+    .resultado p{
+        margin-top:0 ;
+    }
+    .respuesta{
+        font-size: 1.2rem;
+
     }
 
     
@@ -197,7 +207,8 @@ button{
     }
     .resultado{
         margin:40px 0 ;
-        width: 670px;
+        min-width: 670px;
+        width: fit-content !important;
         padding: 30px;
     }
     .resultado img{
@@ -232,7 +243,8 @@ button{
         margin: 0 0 20px 0 ;
     }
     .resultado{
-        width: 350px;
+        min-width: 350px;
+        width: fit-content;
     }
 }
 

@@ -98,7 +98,7 @@ function mostrarRespuesta(respuesta){
     imgResultado.classList.add("oculto");
     h3Resultado.classList.add("oculto");
     copiarResultado.classList.remove("oculto");
-    pResultado.classList.add("respuesta");
+    pResultado.classList.add("respuestaLarga");
     pResultado.innerHTML=respuesta;
 }
 
