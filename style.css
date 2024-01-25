@@ -108,7 +108,7 @@ button{
     height: 75%;
 }
 
-.notificacionCopiado{
+.notificacion{
     position: absolute;
     background-color: white;
     padding: 20px 40px;
@@ -120,6 +120,7 @@ button{
     transform: translate(-50%);
     animation-duration: 1s;
     animation-name: slidein;
+    text-align: center;
 }
 
 

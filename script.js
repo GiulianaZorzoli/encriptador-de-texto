@@ -3,7 +3,10 @@ const imgResultado = document.getElementById("imgResultado");
 const h3Resultado = document.getElementById("h3Resultado");
 const pResultado = document.getElementById("pResultado");
 const copiarResultado = document.getElementById("copiarResultado");
-const notificacionCopiado = document.getElementById("notificacionCopiado");
+const notificacion = document.getElementById("notificacion");
+const notificacionTexto = document.getElementById("notificacionTexto");
+
+
 
 let textoProcesado="";
 
@@ -13,76 +16,116 @@ function encriptarTexto(){
         mostrarDefault();
     }else{
         textoProcesado="";
-         for(let i=0; i<texto.length;i++){
-            if(texto[i]=='a'){
-                textoProcesado+="ai";
-            }else if(texto[i]=='e'){
-                textoProcesado+="enter";
-            }else if(texto[i]=='i'){
-                textoProcesado+="imes";
-            }else if(texto[i]=='o'){
-                textoProcesado+="ober";
-            }else if(texto[i]=='u'){
-                textoProcesado+="ufat";
-            }else{
-                textoProcesado+=texto[i];
-            }
-         }
-        mostrarRespuesta(textoProcesado);
+        if(comprobarCaracteres(texto) == true){
+            for(let i=0; i<texto.length;i++){
+                if(texto.charCodeAt(i)){
+                    if(texto[i]=='a'){
+                        textoProcesado+="ai";
+                    }else if(texto[i]=='e'){
+                        textoProcesado+="enter";
+                    }else if(texto[i]=='i'){
+                        textoProcesado+="imes";
+                    }else if(texto[i]=='o'){
+                        textoProcesado+="ober";
+                    }else if(texto[i]=='u'){
+                        textoProcesado+="ufat";
+                    }else{
+                        textoProcesado+=texto[i];
+                    }
+                }
+             }
+             
+            mostrarRespuesta(textoProcesado);
+        }else{
+            notificacionError();
+            mostrarDefault();
+        }
+
     }
     
 }
+
 function desencriptarTexto(){
     const texto = textarea.value;
     if(texto==""){
         mostrarDefault();
     }else{
         textoProcesado="";
-        let i=0;
-        while(i<texto.length){
-            switch(texto[i]){
-                case 'a':
-                    textoProcesado+="a";
-                    i=i+2;
-                    break;
-                case 'e':
-                    textoProcesado+="e";
-                    i=i+5;
-                    break;
-                case 'i':
-                    textoProcesado+="i";
-                    i=i+4;
-                    break;
-                case 'o':
-                    textoProcesado+="o";
-                    i=i+4;
-                    break;
-                case 'u':
-                    textoProcesado+="u";
-                    i=i+4;
-                    break;
-                default:
-                    textoProcesado+=texto[i];
-                    i++;
+        if(comprobarCaracteres(texto) == true){
+            let i=0;
+            while(i<texto.length){
+                switch(texto[i]){
+                    case 'a':
+                        textoProcesado+="a";
+                        i=i+2;
+                        break;
+                    case 'e':
+                        textoProcesado+="e";
+                        i=i+5;
+                        break;
+                    case 'i':
+                        textoProcesado+="i";
+                        i=i+4;
+                        break;
+                    case 'o':
+                        textoProcesado+="o";
+                        i=i+4;
+                        break;
+                    case 'u':
+                        textoProcesado+="u";
+                        i=i+4;
+                        break;
+                    default:
+                        textoProcesado+=texto[i];
+                        i++;
 
+                }
             }
+            mostrarRespuesta(textoProcesado);
+        }else{
+            notificacionError();
+            mostrarDefault();
         }
 
-        mostrarRespuesta(textoProcesado);
     }
    
 }
 
+function comprobarCaracteres (cadena){
+
+    let i = 0;
+    let bool = true;
+    while(i<cadena.length && bool){
+        console.log(cadena[i]);
+        if((cadena.charCodeAt(i) < 97 || cadena.charCodeAt(i) > 122) && cadena.charCodeAt(i)!=32){
+            bool=false;
+        }
+        i++;
+    }
+    console.log(bool);
+    return bool;
+}
+
+
 const copiarTexto= async () =>{
     try{
         await navigator.clipboard.writeText(textoProcesado);
-        notificacionCopiado.classList.remove("oculto");
-        setTimeout(()=>{
-            notificacionCopiado.classList.add("oculto");
-        },2000);
+        notificacionTexto.innerHTML="copiado al portapapeles";
+        notificacion.classList.remove("oculto");
+       setTimeout(()=>{
+            notificacion.classList.add("oculto");
+    },2000);
     }catch(err){
         console.log("error al copiar");
     }
+}
+
+function notificacionError(){
+    notificacionTexto.innerHTML="Solo letras minúsculas y sin acentos";
+    notificacion.classList.remove("oculto");
+    setTimeout(()=>{
+        notificacion.classList.add("oculto");
+    },2000);
 }
 
 
